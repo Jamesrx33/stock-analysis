@@ -3,7 +3,7 @@
 ### **<p align="center">A Data Analytics report designed to discern the best performing Green Energy Stocks of 2017 and 2018.</p>**
 
 ---
-## Method of Analysis
+## Overview
 1. **Analysis of Launch Date:** A Pivot Table, filtered by the "Theater" Parent Category and Year, was generated from the source data. The rows of the table were organized by Month and a count of all successful, failed and canceled campaigns were displayed for each row. From this table we generated the "Theater Outcomes Based on Launch Date" line chart to display the trend of Theater Kickstarter Outcomes throughout the months of the calendar year.
 
     * [Launch Date Reference Table](https://github.com/Jamesrx33/Kickstarter-Challenge/blob/main/Resources/Table_Outcomes_vs_Launch.png)
