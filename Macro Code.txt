@@ -169,3 +169,69 @@ Sub AllStocksAnalysis()
     
 
 End Sub
+
+Sub formatAllStocksAnalysisTable()
+
+    'Formatting
+    Worksheets("All Stocks Analysis").Activate
+    
+    Range("A3:C3").Font.Bold = True
+    Range("A3:C3").Borders(xlEdgeBottom).LineStyle = xlContinuous
+    Range("A3:C3").Font.FontStyle = "Aharoni"
+    Range("A3:C3").Font.Size = 18
+    Range("A3:C3").Font.Color = RGB(0, 255, 0)
+    
+    Range("B4:B15").NumberFormat = "$#,##0.00"
+    
+    Range("C4:C15").NumberFormat = "0.00%"
+    
+    Columns("A").AutoFit
+    Columns("B").AutoFit
+    Columns("C").AutoFit
+    
+    dataRowStart = 4
+    dataRowEnd = 15
+    For i = dataRowStart To dataRowEnd
+    
+        If Cells(i, 3) > 0 Then
+            'Color the cell green
+            Cells(i, 3).Interior.Color = vbGreen
+        ElseIf Cells(i, 3) < 0 Then
+            'Color the cell red
+            Cells(i, 3).Interior.Color = vbRed
+
+        Else
+            'Clear the cell color
+            Cells(i, 3).Interior.Color = xlNone
+
+        End If
+        
+    Next i
+    
+    
+    'Skill Drill checkerboard formatting
+    startDrill = 1
+    stopDrill = 8
+        
+    For i = startDrill To stopDrill
+    
+        For j = startDrill To stopDrill
+        
+            If i Mod 2 And j Mod 2 Then
+                Cells(20 + i, j).Interior.Color = RGB(10, 10, 200)
+            ElseIf i Mod 2 And Not j Mod 2 Then
+                Cells(20 + i, j).Interior.Color = RGB(15, 255, 0)
+            ElseIf Not i Mod 2 And j Mod 2 Then
+                Cells(20 + i, j).Interior.Color = RGB(15, 255, 0)
+            Else
+                Cells(20 + i, j).Interior.Color = RGB(10, 10, 200)
+            End If
+            
+        
+        Next j
+    
+    Next i
+    
+
+    
+End Sub
