@@ -7,8 +7,10 @@ testMessage = "Hello World!"
 MsgBox (testMessage)
 
 End Sub
-Sub PopulateHeaders()
 
+
+Sub DQAnalysis()
+    
     Worksheets("DQ Analysis").Activate
     
     Range("A1").Value = "DAQO (Ticker: DQ)"
@@ -18,29 +20,42 @@ Sub PopulateHeaders()
     Cells(3, 2).Value = "Total Daily Volume"
     Cells(3, 3).Value = "Return"
     
-End Sub
-
-Sub DQAnalysis()
-    
     Worksheets("2018").Activate
     
     rowStart = 2
-    rowEnd = 3013
+    
+    'rowEnd code taken from https://stackoverflow.com/questions/18088729/row-count-where-data-exists
+    rowEnd = Cells(Rows.Count, "A").End(xlUp).Row
+    
+    'Initialize totalVolume variable to 0
     totalVolume = 0
+    Dim startingPrice As Double
+    Dim endingPrice As Double
+        
     
     For i = rowStart To rowEnd
         'increase totalVolume if ticker is DQ
         If Cells(i, 1).Value = "DQ" Then
             totalVolume = totalVolume + Cells(i, 8).Value
         End If
+
+        'find starting price, assuming the data is ordered by Ticker and chronologically
+        If Cells(i, 1).Value = "DQ" And Cells(i - 1, 1).Value <> "DQ" Then
+            startingPrice = Cells(i, 6).Value
+        End If
+        
+        'find ending price, assuming the data is ordered by Ticker and chronologically
+        If Cells(i, 1).Value = "DQ" And Cells(i + 1, 1).Value <> "DQ" Then
+            endingPrice = Cells(i, 6).Value
+        End If
         
     Next i
     
-    MsgBox (totalVolume)
     
     Worksheets("DQ Analysis").Activate
     Cells(4, 1).Value = 2018
     Cells(4, 2).Value = totalVolume
+    Cells(4, 3).Value = (endingPrice / startingPrice) - 1
     
 End Sub
 
@@ -52,4 +67,73 @@ Sub HeaderPopups()
         
     Next i
     
+End Sub
+
+Sub AllStocksAnalysis()
+
+    'Initialize and populate table headers for All Stocks Analysis Worksheet
+    Worksheets("All Stocks Analysis").Activate
+    
+    Range("A1").Value = "All Stocks (2018)"
+    
+    'Create a header row
+    Cells(3, 1).Value = "Ticker"
+    Cells(3, 2).Value = "Total Daily Volume"
+    Cells(3, 3).Value = "Return"
+    
+    
+    'Initialize 2018 worksheet and begin computation
+    Worksheets("2018").Activate
+    
+    'rowEnd code taken from https://stackoverflow.com/questions/18088729/row-count-where-data-exists
+    rowEnd = Cells(Rows.Count, "A").End(xlUp).Row
+    
+    'Initialize tickerCount to 1 -- this is assuming there is at least one Ticker
+    tickerCount = 1
+        
+    'Obtain the count of unique Tickers (Starting on row 3 so comparisons do not include the header row)
+    For i = 3 To rowEnd
+    
+        If Cells(i, 1).Value <> Cells(i - 1, 1).Value Then
+    
+            tickerCount = tickerCount + 1
+            
+        End If
+    
+    Next i
+    
+    'Initialize the tickers array using the tickerCount variable, set index 0 to the first Ticker in the sheet
+    Dim tickers(tickerCount) As String
+    tickers(0) = Cells(2, 1).Value
+    
+    'Initialize array Index value for populating the ticker() array
+    tickerIndex = 0
+    
+    'Iterate through each row in the sheet, if the Ticker value in the current row is different than the last identified Ticker, append the ticker array with that value
+    For i = 2 To rowEnd
+    
+        If Cells(i, 1) <> tickers(tickerIndex) Then
+    
+            tickerIndex = tickerIndex + 1
+            tickers(tickerIndex) = Cells(i, 1)
+            
+        End If
+    
+    Next i
+    
+    'Iterate through the ticker() array to perform analysis
+    For i = 1 To tickerCount
+
+        'a line of code here will run 10 times
+
+        For j = 1 To 20
+
+            'a line of code here will run 200 times
+
+        Next j
+
+    Next i
+    
+    
+
 End Sub
