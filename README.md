@@ -4,20 +4,26 @@
 
 ---
 ## Overview
-1. **Analysis of Launch Date:** A Pivot Table, filtered by the "Theater" Parent Category and Year, was generated from the source data. The rows of the table were organized by Month and a count of all successful, failed and canceled campaigns were displayed for each row. From this table we generated the "Theater Outcomes Based on Launch Date" line chart to display the trend of Theater Kickstarter Outcomes throughout the months of the calendar year.
-
-    * [Launch Date Reference Table](https://github.com/Jamesrx33/Kickstarter-Challenge/blob/main/Resources/Table_Outcomes_vs_Launch.png)
-
-2. **Analysis of Funding Goals:** A new Sheet was created and a "Goals" table was organized using 11 disitinct Goal ranges. The number of successful, failed and canceled Theater Kickstarter Campaigns was populated using the Excel COUNTIFS() fuction. This function referenced the data in the original sheet, filtered for the "Plays" subcategory and specified the range in its respective Goals Table row. After obtaining these metrics, the Total count of projects in each range was calculated using the Excel SUM() function. Finally, the percentage of successful, failed and canceled campaigns in each range was identified by taking the dividend of each respective count over the total. The "Outcomes Based on Goal" line chart below was then generated using these percentages and their attributed range.
-
-    * [Funding Goals Reference Table](https://github.com/Jamesrx33/Kickstarter-Challenge/blob/main/Resources/Table_Outcomes_vs_Goals.png)
+This report is designed to enumerate the Total Daily Volume and Yearly Return of 12 individual Green Energy stocks in the years 2017 and 2018. The information below will be presented to Steve's parents to ensure they make the most prudent investment.
 
 ---
-### Visualization of Launch Date Analysis
-![Theater_Outcomes_vs_Launch](https://github.com/Jamesrx33/Kickstarter-Challenge/blob/main/Resources/Theater_Outcomes_vs_Launch.png)
+## Results
+**Stock Performance - 2017:** For the exception of Ticker "TERP", every Green Energy stock saw a positive return on investment ranging from 5%-199% at year's end. The yearly total of daily stock volume ranged from $136 million to $3.2 billion, indicating this was a lucrative year. Given the percentage return on investment , the top performing stocks of this year were "DQ", "SEDG" and "ENPH"
 
-### Visualization of Goals Analysis
-![Outcomes_vs_Goals](https://github.com/Jamesrx33/Kickstarter-Challenge/blob/main/Resources/Outcomes_vs_Goals.png?raw=true)
+**Stock Performance - 2018:** This was a hard year for Green Energy stocks. The total daily stock volume, ranging from $83 million to $3.3 billion, was comparable to 2017. However, the return on investment was negative for every stock except for "ENPH" and "RUN".
+
+---
+## Conclusion
+Given that the return on investment was both substantial and consistent throughout 2017 and 2018, I would recommend investing in "ENPH" stock.
+
+Refer to the tables below for a case by case analysis of the stocks provided
+
+---
+### Stocks Analysis Table - 2017
+![Analysis_Table_2017](https://github.com/Jamesrx33/stock-analysis/blob/main/Resources/Analysis_Table_2017.png?raw=true)
+
+### Stocks Analysis Table - 2018
+![Analysis_Table_2018](https://github.com/Jamesrx33/stock-analysis/blob/main/Resources/Analysis_Table_2018.png?raw=true)
 
 ### Challenges and Difficulties Encountered
         >The original "launched_at" data was in written in a Unix Timestamp.
