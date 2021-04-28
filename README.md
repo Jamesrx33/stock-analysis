@@ -8,9 +8,9 @@ This report is designed to enumerate the Total Daily Volume and Yearly Return of
 
 ---
 ## Results
-**Stock Performance - 2017:** For the exception of Ticker "TERP", every Green Energy stock saw a positive return on investment ranging from 5%-199% at year's end. The yearly total of daily stock volume ranged from $136 million to $3.2 billion, indicating this was a lucrative year. Given the percentage return on investment , the top performing stocks of this year were "DQ", "SEDG" and "ENPH"
+**Stock Performance - 2017:** For the exception of Ticker "TERP", every Green Energy stock saw a positive return on investment ranging from 5%-199% at year's end. The yearly total of daily stock volume averaged around $263 million, indicating this was a lucrative year. Given the percentage return on investment , the top performing stocks of this year were "DQ", "SEDG" and "ENPH"
 
-**Stock Performance - 2018:** This was a hard year for Green Energy stocks. The total daily stock volume in 2018, ranging from $83 million to $3.3 billion, was comparable to 2017. However, the return on investment was negative for every stock except for "ENPH" and "RUN".
+**Stock Performance - 2018:** This was a hard year for Green Energy stocks. The total daily stock volume in 2018, averaging at $276 million, was higher than 2017. But the return on investment was negative for every stock except for "ENPH" and "RUN".
 
 **Code Performance Testing:** Utilizing the original code from this module, the performance times were .67s and .70s for the anylsis of the years 2017 and 2018 respectively.
 
